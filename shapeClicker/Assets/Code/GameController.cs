@@ -89,6 +89,7 @@ public class GameController : MonoBehaviour
     public void DestroyAllSpawnedObjects()
     {
         CurrentState = State.Setup;
+        Score = 0;
         foreach (var obj in spawnedObjects)
         {
             Destroy(obj.gameObject);
@@ -113,10 +114,11 @@ public class GameController : MonoBehaviour
             foreach (var g in spawnedObjects)
             {
                 speed *= 1.2f;
-                g.GetComponent<PlayObject>().Speed = speed;
-                nextSpeedIncreaseTime = Time.time + deltaIncreseSpeed;
-
+                PlayObject _playObject = g.GetComponent<PlayObject>();
+                if (_playObject)
+                    g.GetComponent<PlayObject>().Speed = speed;
             }
+            nextSpeedIncreaseTime = Time.time + deltaIncreseSpeed;
         }
     }
 }

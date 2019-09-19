@@ -65,7 +65,7 @@ public class PlayObject : MonoBehaviour,IPointerClickHandler
         //_psMain.startSize = transform.localScale.x * 0.1f;
         _psMain.startColor = _rend.material.color;
         _ps.transform.localScale = transform.localScale;
-        Destroy(Instantiate(_ps, transform.position, Quaternion.identity), _psMain.duration);
+        Destroy(Instantiate(_ps, transform.position, Quaternion.identity),2f);
     }
 
     public void OnPointerClick(PointerEventData eventData)
